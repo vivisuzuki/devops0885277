@@ -11,12 +11,10 @@ pipeline {
                 '''
             }
         }
-    }
-    stages {
         stage('instalação dependências') {
             steps {
                 sh 'npm install'
             }
-        }
+       }   
     }
 }
