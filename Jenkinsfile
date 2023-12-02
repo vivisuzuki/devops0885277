@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('verify toolings') {
+        stage('verificação ferramentas') {
             steps {
                 sh '''
                 docker info
@@ -9,6 +9,13 @@ pipeline {
                 docker-compose version
                 java --version
                 '''
+            }
+        }
+    }
+    stages {
+        stage('instalação dependências') {
+            steps {
+                sh 'npm install'
             }
         }
     }
