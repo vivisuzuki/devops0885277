@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('verificação ferramentas') {
+        stage('Verificação Ferramentas') {
             steps {
                 sh '''
                 docker info
@@ -11,7 +11,7 @@ pipeline {
                 '''
             }
         }
-        stage('instalação dependências') {
+        stage('Instalação Dependências') {
             steps {
                 sh 'npm install'
             }
@@ -24,6 +24,11 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker-compose build'
+            }
+        }
+        stage('Up') {
+            steps {
+                sh 'docker-compose up'
             }
         }
     }
